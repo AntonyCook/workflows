@@ -3,15 +3,20 @@
 name: workflow1
 on:
   workflow_dispatch:
-
+    inputs:
+      environment:
+        description: "choose an environment"
+        required: true
+        default: "dev"
+        
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     runs-on: ubuntu-latest
     
-    environment: ${{ matrix.environment }}
+    environment: ${{ inputs.environment }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Run a one-line script
-        run: echo "Got this environment - ${{ matrix.environment }} - with this ENV_ONE value ${{ env.ENV_ONE }} and this SECRET_ONE value ${{ secrets.SECRET_ONE }}"
+        run: echo "Got this environment - ${{ inputs.environment }} - with this ENV_ONE value ${{ env.ENV_ONE }} and this SECRET_ONE value ${{ secrets.SECRET_ONE }}"
