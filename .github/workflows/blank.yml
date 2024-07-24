@@ -16,12 +16,20 @@ on:
         
         
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
+jobs:      
   build:
     runs-on: ubuntu-latest
     
     environment: ${{ inputs.target_environment }}
     steps:
+      - name: check-prereqs
+        run: |
+          if [ -z "${{ vars.ENV_ONE }}" ]; then
+            echo "ENV_ONE is not set in environments settings"
+            exit 1
+          fi
+
+      - name: checkout
       - uses: actions/checkout@v4
 
       - name: Run a one-line script
