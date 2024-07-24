@@ -30,7 +30,7 @@ jobs:
           fi
 
       - name: checkout
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Run a one-line script
         run: echo "Got this environment - '${{ inputs.target_environment }}', with this ENV_ONE value ${{ vars.ENV_ONE }}, and this SECRET_ONE value ${{ secrets.SECRET_ONE }}"
