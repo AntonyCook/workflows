@@ -11,9 +11,9 @@ jobs:
 
     strategy:
       matrix:
-        environments: [dev, test]
+        environment: [dev, test]
     steps:
       - uses: actions/checkout@v4
 
       - name: Run a one-line script
-        run: echo "Got this environment - ${{ matrix.environment }} - with this ENV_ONE value ${{ env.ENV_ONE }} and this SECRET_ONE value ${{ secrets.SECRET_ONE }}
+        run: echo "Got this environment - ${{ matrix.environment }} - with this ENV_ONE value ${{ env.ENV_ONE }} and this SECRET_ONE value ${{ secrets.SECRET_ONE }}"
