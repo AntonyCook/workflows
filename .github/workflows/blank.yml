@@ -42,4 +42,4 @@ jobs:
           file_path: ".github/workflows/service-config.json"
           
       - name: test env properties
-        run: echo "Service1.dockerfile is ${{steps.environment_properties.outputs}}"
+        run: echo "Service1.dockerfile is ${{steps.environment_properties.outputs.environments}}"
