@@ -1,5 +1,5 @@
 {
-  "environments": {
+  "environments": [
     "dev": {
       "dockerFilePath": "/path/to/dev/Dockerfile",
       "serviceName": "devService"
@@ -12,5 +12,5 @@
       "dockerFilePath": "/path/to/prod/Dockerfile",
       "serviceName": "prodService"
     }
-  }
+  ]
 }
