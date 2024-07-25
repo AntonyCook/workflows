@@ -14,10 +14,13 @@ on:
         - test
         - prod
         
-        
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:      
+
   build:
+    env:
+      services: '{"service1": [ "dockerfile": "somepath to dockerfile for service 1", "servicename": "MyServiceOne" ] }'
+      
     runs-on: ubuntu-latest
     
     environment: ${{ inputs.target_environment }}
@@ -34,3 +37,6 @@ jobs:
 
       - name: Run a one-line script
         run: echo "Got this environment - '${{ inputs.target_environment }}', with this ENV_ONE value ${{ vars.ENV_ONE }}, and this SECRET_ONE value ${{ secrets.SECRET_ONE }}"
+
+      - name: interrogate service array
+        run: echo "Service1.dockerfile is ${{ env.services.service1.dockerfile }}"
