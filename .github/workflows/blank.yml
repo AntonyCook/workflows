@@ -44,5 +44,5 @@ jobs:
         with:
           file_path: "service-config.json"
           
-      - name test env properties
+      - name: test env properties
         run: echo "Service1.dockerfile is ${{steps.environment_properties.outputs.environments.dev.dockerFilePath.value}}"
