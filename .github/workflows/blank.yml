@@ -42,7 +42,7 @@ jobs:
         id: environment_properties
         uses: ActionsTools/read-json-action@main
         with:
-          file_path: "service-config.json"
+          file_path: "workflows/service-config.json"
           
       - name: test env properties
         run: echo "Service1.dockerfile is ${{steps.environment_properties.outputs.environments.dev.dockerFilePath.value}}"
