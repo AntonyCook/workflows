@@ -38,5 +38,11 @@ jobs:
       - name: Run a one-line script
         run: echo "Got this environment - '${{ inputs.target_environment }}', with this ENV_ONE value ${{ vars.ENV_ONE }}, and this SECRET_ONE value ${{ secrets.SECRET_ONE }}"
 
-      - name: interrogate service array
-        run: echo "Service1.dockerfile is ${{ toJson($services).service1.dockerfile }}"
+      - name: read environment properties
+        id: environment_properties
+        uses: ActionsTools/read-json-action@main
+        with:
+          file_path: "service-config.json"
+          
+      - name test env properties
+        run: echo "Service1.dockerfile is ${{steps.environment_properties.outputs.environments.dev.dockerFilePath.value}}"
