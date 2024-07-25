@@ -1,0 +1,16 @@
+{
+  "environments": {
+    "dev": {
+      "dockerFilePath": "/path/to/dev/Dockerfile",
+      "serviceName": "devService"
+    },
+    "test": {
+      "dockerFilePath": "/path/to/test/Dockerfile",
+      "serviceName": "testService"
+    },
+    "prod": {
+      "dockerFilePath": "/path/to/prod/Dockerfile",
+      "serviceName": "prodService"
+    }
+  }
+}
