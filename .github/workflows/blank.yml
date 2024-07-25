@@ -18,9 +18,6 @@ on:
 jobs:      
 
   build:
-    env:
-      services: '{"service1": [ "dockerfile": "somepath to dockerfile for service 1", "servicename": "MyServiceOne" ] }'
-      
     runs-on: ubuntu-latest
     
     environment: ${{ inputs.target_environment }}
@@ -45,4 +42,4 @@ jobs:
           file_path: ".github/workflows/service-config.json"
           
       - name: test env properties
-        run: echo "Service1.dockerfile is ${{steps.environment_properties.outputs.environments.dev.dockerFilePath.value}}"
+        run: echo "Service1.dockerfile is ${{steps.environment_properties.outputs}}"
