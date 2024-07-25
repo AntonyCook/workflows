@@ -39,4 +39,4 @@ jobs:
         run: echo "Got this environment - '${{ inputs.target_environment }}', with this ENV_ONE value ${{ vars.ENV_ONE }}, and this SECRET_ONE value ${{ secrets.SECRET_ONE }}"
 
       - name: interrogate service array
-        run: echo "Service1.dockerfile is ${{ env.services.service1.dockerfile }}"
+        run: echo "Service1.dockerfile is $services.service1.dockerfile"
